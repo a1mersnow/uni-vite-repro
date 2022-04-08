@@ -53,4 +53,4 @@ page {
   font-size: 36rpx;
   color: #8f8f94;
 }
-</styles>
+</style>
