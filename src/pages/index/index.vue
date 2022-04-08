@@ -4,6 +4,9 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
+    <view>
+      <button @click="handleGoTo">goto other</button>
+    </view>
   </view>
 </template>
 
@@ -18,11 +21,23 @@ export default {
     }
   },
   onLoad() {},
-  methods: {},
+  methods: {
+    handleGoTo () {
+      uni.navigateTo({
+        url: '/pagesOther/other/other'
+      })
+    }
+  },
 }
 </script>
 
 <style>
+page {
+  background-color: blue;
+}
+</style>
+
+<style scoped>
 .content {
   display: flex;
   flex-direction: column;
