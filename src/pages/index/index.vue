@@ -7,17 +7,39 @@
     <view>
       <button @click="handleGoTo">goto other</button>
     </view>
+
+    <view>
+      <button @click="showPopup">showPop</button>
+    </view>
+
+    outer:{{count}}
+
+    <popup-local
+      mask-click
+      type="bottom"
+      ref="popup"
+    >
+      <view style="height: 300px; background-color: orange;">
+        <view>count: {{count}}</view>
+        <button @click="count++">add</button>
+      </view>
+    </popup-local>
   </view>
 </template>
 
 <script>
 import logo from '../../static/logo.png'
+import PopupLocal from '../../components/popup-local/popup-local.vue'
 console.log(logo)
 
 export default {
+  components: {
+    PopupLocal,
+  },
   data() {
     return {
       title: 'Hello',
+      count: 0,
     }
   },
   onLoad() {},
@@ -26,6 +48,9 @@ export default {
       uni.navigateTo({
         url: '/pagesOther/other/other'
       })
+    },
+    showPopup () {
+      this.$refs.popup.open()
     }
   },
 }
